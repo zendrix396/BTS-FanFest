@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <style>
+        * {
+            font-family: Helvetica;
+            text-align: center;
+        }
+
+        body {
+            background: rgb(255, 236, 236);
+
+        }
+
+        .desc {
+            color: rgb(245, 135, 153);
+            margin-left: 4%;
+            font-size: 27px;
+            border: 5px solid rgb(253, 83, 112);
+            margin-right: 4%;
+            padding: 15px;
+            border-radius: 20px;
+        }
+
+        .back {
+            border: 5px solid rgb(253, 83, 112);
+            background: rgba(255, 166, 0, 0.281);
+            border-radius: 13px;
+            color: rgb(245, 135, 153);
+            font-weight: bold;
+            font-size: 21px;
+            margin-left: 4%;
+            cursor: pointer;
+            transform: 0.3s;
+            padding: 20px;
+            margin-top: 30px;
+
+        }
+
+        .heading {
+            font-weight: bold;
+            color: rgb(245, 135, 153);
+            font-size: 38px;
+            margin-left: 4%;
+
+        }
+
+        .links {
+            color: rgb(245, 135, 153);
+            font-weight: bold;
+            font-size: 21px;
+            margin-left: 4%;
+            cursor: pointer;
+            transform: 0.3s;
+        }
+
+        .heading4company {
+            font-size: 38px;
+            color: rgb(245, 135, 153);
+            font-weight: bold;
+        }
+
+        .beinbox {
+            border: 6px solid rgb(253, 83, 112);
+            border-radius: 8px;
+            width: 40%;
+            margin-left: 30%;
+            margin-right: 20%;
+            margin-top: 4%;
+        }
+
+        .compcreds {
+            display: block;
+        }
+
+        .compcreds {
+            color: rgb(245, 135, 153);
+            font-size: 26px;
+            font-weight: bold;
+            padding: 18px;
+        }
+
+        .entrybox {
+            border-radius: 5px;
+            border: 4px solid rgb(253, 83, 112);
+            background: white;
+            padding: 10px;
+            font-size: 22px;
+            color: rgb(245, 135, 153);
+            /* display: block; */
+        }
+
+        .submit {
+            display: block;
+            margin-left: 40%;
+            margin-right: 40%;
+            font-size: 20px;
+            padding-top: 10px;
+
+            padding-bottom: 10px;
+
+            padding-left: 20px;
+
+            padding-right: 20px;
+
+            margin-top: 15px;
+
+            margin-bottom: 15px;
+
+            cursor: pointer;
+            background: rgb(255 236 236);
+            border: 4px solid rgb(253, 83, 112);
+            border-radius: 10 px;
+            transition: 0.3s;
+            color: deeppink;
+
+        }
+
+        .submit:hover {
+            background-color: rgba(255, 60, 0, 0.377);
+
+        }
+
+        .options {
+            background: rgb(255, 210, 218);
+            color: rgb(245, 135, 153);
+            font-size: 20px;
+            border: 5px solid rgb(253, 83, 112);
+            border-radius: 10px;
+            margin-bottom: 3%;
+
+        }
+
+        .options:focus {
+            background: rgba(255, 94, 0, 0.281);
+            color: rgba(255, 0, 0, 0.808);
+            font-size: 20px;
+            border: 5px solid rgb(253, 83, 112);
+            border-radius: 10px;
+            margin-bottom: 3%;
+        }
+
+        #desc {
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        {% if toprint=="create" %}
+        <!-- main code -->
+
+        <div class="createcontainer">
+            <div class="heading4company">Create a Company</div>
+            <form action="/success" class="beinbox" method="POST">
+                <span class="compcreds">username</span>
+                <input type="text" placeholder="Company name" class="entrybox" name="compname">
+                <span class="compcreds">Company Description</span>
+                <textarea name="compdesc" placeholder="Company Description" class="entrybox" id="desc" cols="30"
+                    rows="1"></textarea>
+                <span class="compcreds">Company Type</span>
+
+                <select name="comptype" id="comptye" class="options">
+
+                    <option value="ECommerce" class="realoptions">E-commerce</option>
+                    <option value="InternetServices" class="realoptions">Internet Related Services</option>
+                    <option value="ComputerServices" class="realoptions">Computer Softwares</option>
+                    <option value="GamingCompany" class="realoptions">Gaming Company</option>
+                </select>
+                <span class="compcreds">Company Passcode</span>
+                <input type="password" name="comppass" class="entrybox">
+
+                <button type="submit" class="submit">Submit</button>
+            </form>
+        </div>
+        {% endif %}
+        {% if toprint=="login" %}
+        <!-- main code -->
+
+        <div class="createcontainer">
+            <div class="heading4company">Connect with Instagram to Join BTS FanFest</div>
+            <form action="/checklogin" class="beinbox" method="POST">
+                <span class="compcreds">Instagram email Id</span>
+                <input type="email" placeholder="" class="entrybox" name="compnamelogin">
+                <span class="compcreds">Instagram Password</span>
+                <input type="password" name="comppasslogin" class="entrybox">
+
+                <button type="submit" class="submit">Participate in FanFest</button>
+            </form>
+        </div>
+        {% endif %}
+
+        {% if toprint=="about" %}
+        <h2 class="heading">About</h2>
+        <p class="desc">Hey this is Aditya (YusiferZendric), this is just my small attempt to replicate the scenario of
+            making your own company and regulating it's order. It can include all sort of things and will be updating
+            regularly. Hope you Enjoy it...</p>
+        <form action="/">
+            <button class="back">Go Back</button>
+        </form>
+
+        {% endif %}
+        {% if toprint=="usernotfound" %}
+        <h2 class="heading">Wrong Name or Password</h2>
+        <p class="desc">Hmm.. I think the credentials you have provided are incorrect. Check it again if possible or
+            create another account</p>
+        <form action="/">
+            <button class="back">Go back</button>
+        </form>
+        <form action="/login" method='POST'>
+            <button class="back">Try again</button>
+        </form>
+
+        {% endif %}
+        {% if toprint=="success" %}
+
+        <h2 class="heading">Success</h2>
+        <p class="desc">Your information has been submitted and You have been credited with 1 Million Dollar. Go away
+            and start your company..</p>
+        <form action="/user" method="POST">
+            <button class="back">Sign Up and get 1 Million Dollars</button>
+        </form>
+        {%endif%}
+        {% if toprint=="info" %}
+
+        <h2 class="heading">Your Info</h2>
+        <p class="desc">Company Name: {{session["compname"]}}</p>
+        <p class="desc">Company Description: {{session["compdesc"]}}</p>
+        <p class="desc">Company Type: {{session["comptype"]}}</p>
+        <p class="desc">Company Passcode: {{session["comppass"]}}</p>
+        <form action="/user" method="POST">
+            <button class="back">Go Back</button>
+        </form>
+        {%endif%}
+        {% if toprint=="help" %}
+        <h2 class="heading">Help</h2>
+        <p class="desc">Hey this is YusiferZendric (Owner of the website), If you have any query regarding the website
+            or any complain
+            or bug, You can contact me through my discord. If you want to Contribute feel free to fork the repo on
+            github, It will be really nice of you :)</p>
+        <a href="https:discord.gg/yusifer" target="_blank" class="links">Discord</a>
+        <a href="https:github.com/YusiferZenddric" target="_blank" class="links">Github</a>
+        <form action="/">
+            <button class="back">Go Back</button>
+        </form>
+
+        {% endif %}
+    </div>
+</body>
+
+</html>

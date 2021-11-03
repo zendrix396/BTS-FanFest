@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BTS FanFest</title>
+    <style>
+        * {
+            font-family: Helvetica;
+        }
+
+        body {
+            background-color: white;
+        }
+
+        .container {
+            display: grid;
+            grid-template-areas:
+                'instagram instagram instagram instagram'
+                'getstarted getstarted getstarted getstarted'
+                'copyright copyright copyright copyright';
+            grid-gap: 6rem;
+
+        }
+
+        .navbar {
+            display: flex;
+            border: 5px solid pink;
+            border-radius: 12px;
+            background-color: rgb(236, 212, 216);
+            height: 10%;
+            width: 98%;
+            align-items: center;
+            grid-area: instagram;
+            position: fixed;
+
+        }
+
+        .logo {
+            font-size: 30px;
+            font-weight: bold;
+            color: rgb(230, 106, 127);
+            margin-right: 30%;
+            margin-left: 3%;
+            cursor: pointer;
+
+        }
+
+        .navbtn,
+        h4 {
+            font-size: 20px;
+            text-decoration: none;
+            color: rgb(230, 106, 127);
+            padding-left: 3%;
+            transition: 0.4s;
+            background: none;
+            border: none;
+        }
+
+        .navbtn:hover {
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        .rightside {
+            height: 200%;
+            width: 50%;
+            grid-area: getstarted;
+            margin-top: 5%;
+        }
+
+        .copyright {
+            grid-area: copyright;
+            border: 4px solid pink;
+            border-radius: 12px;
+            background-color: rgb(238, 207, 207);
+            text-align: center;
+            
+
+
+
+        }
+
+        .createbtn {
+            border: 5px solid pink;
+            background: rgb(238, 226, 226);
+            border-radius: 13px;
+            color: black;
+            font-weight: bold;
+            font-size: 21px;
+            margin-left: 30%;
+            cursor: pointer;
+            transform: 0.3s;
+            padding: 8px;
+            padding-left: 30px;
+            padding-right: 30px;
+            margin-bottom: 10px;
+        }
+
+        .createbtn:hover {
+            background: rgb(245, 222, 226);
+        }
+
+        .desc {
+            margin-left: 30%;
+            font-size: 22px;
+            color: rgb(248, 142, 160);
+            font-weight: bold;
+
+        }
+        #compname1{
+            margin-left: 15px;
+            margin-right: 15px;
+        }
+        #cost{
+            /* margin-left: 8px; */
+            margin-right: 15px;
+            color: rgb(41, 212, 41);
+            background: rgb(41, 212, 41);
+        }
+        .logoimage{
+            padding-right: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    {% if login=="true" %}
+
+
+    <div class="container">
+        <div class="navbar">
+            <span class="logo">
+                <img src="/static/required.jpg" class="logoimage" width="50px">
+                Instagram Presents..
+            </span>
+        </div>
+        
+
+
+        <div class="rightside">
+            <form action="/setup" method="POST">
+                <button class="createbtn">Get Started..</button>
+            </form>
+            <p class="desc">You are just one step away from meeting your Stars 🤩🤩...</p>
+        </div>
+        <div class="copyright">
+            <h4>© Copyright Act: Instagram 2021-22</h4>
+        </div>
+    </div>
+    {% else %}
+    <div class="container">
+        <div class="navbar">
+            <span class="logo">
+                BTS FanFest
+            </span>
+            <a href="/" class="navbtn">Instagram</a>
+            <!-- <form action="/about" method="POST" class="navbtn"> -->
+                <a class="navbtn" href="https://en.wikipedia.org/wiki/BTS">About BTS</a>
+            <!-- </form> -->
+            <!-- <form action="/help" method="POST" class="navbtn"><button class='navbtn'>Help</button></form> -->
+        </div>
+        <div class="rightside">
+            <form action="/login" method="POST">
+                <button class="createbtn">Login with Instagram</button>
+                
+            </form>
+            <!-- <form action="/create" method="POST">
+                <button class="createbtn"></button>
+                
+            </form> -->
+            <p class="desc">Don't let the shining opportunity to escape from your hand. Meet our BTS Stars in our WORLD'S BIGGEST BTS FANFEST. 🤩🤩</p>
+        </div>
+        <div class="copyright">
+            <h3>© Copyright Act: Instagram 2021-22</h3>
+        </div>
+    </div>
+    {% endif %}
+
+</body>
+
+</html>
